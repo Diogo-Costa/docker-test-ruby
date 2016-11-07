@@ -11,4 +11,4 @@ RUN useradd -m -d /home/ruby -p ruby ruby && adduser ruby sudo && chsh -s /bin/b
 
 RUN /usr/sbin/install-rbenv.sh
 
-RUN ruby -v
+#RUN ruby -v
