@@ -11,4 +11,16 @@ RUN useradd -m -d /home/ruby -p ruby ruby && adduser ruby sudo && chsh -s /bin/b
 
 RUN /usr/sbin/install-rbenv.sh
 
-#RUN ruby -v
+USER ruby
+ENV HOME /home/ruby
+ENV PATH /home/ruby/.rbenv/shims:/home/ruby/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+#RUN cd /home/ruby && git clone https://github.com/muratso/uptime_checker.git uptime_checker
+COPY /opt/yousebots-guide /home/ruby/yousebots-guide
+
+RUN cd /home/ruby/yousebots-guide && bundle update && bundle install
+
+ENTRYPOINT ["cucumber","/home/ruby/yousebots-guide/features/"]
+
+# Creating variables to be received "Ex: --center"
+CMD ["$1"]
