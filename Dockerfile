@@ -16,7 +16,7 @@ ENV HOME /home/ruby
 ENV PATH /home/ruby/.rbenv/shims:/home/ruby/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 #RUN cd /home/ruby && git clone https://github.com/muratso/uptime_checker.git uptime_checker
-COPY /opt/yousebots-guide /home/ruby/yousebots-guide
+COPY yousebots-guide /home/ruby/yousebots-guide
 
 RUN cd /home/ruby/yousebots-guide && bundle update && bundle install
 
