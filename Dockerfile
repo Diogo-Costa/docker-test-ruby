@@ -7,6 +7,8 @@ COPY install-rbenv.sh /usr/sbin/
 
 RUN chmod 755 /usr/sbin/install-rbenv.sh
 
+RUN useradd -m -d /home/ruby -p ruby ruby && adduser ruby sudo && chsh -s /bin/bash ruby
+
 RUN /usr/sbin/install-rbenv.sh
 
 RUN ruby -v
