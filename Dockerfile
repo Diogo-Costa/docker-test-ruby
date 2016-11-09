@@ -21,7 +21,7 @@ RUN chmod 755 /opt/yousebots-guide/*
 USER ruby
 RUN cd /opt/yousebots-guide && bundle update
 RUN cd /opt/yousebots-guide && bundle install
-
-WORKDIR /opt/yousebots-guide
+VOLUME ["/automated"]
+WORKDIR /automated
 ENTRYPOINT ["cucumber"]
 CMD ["features/"]
