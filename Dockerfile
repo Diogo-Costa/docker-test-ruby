@@ -21,6 +21,11 @@ RUN chmod 755 /opt/yousebots-guide/*
 USER ruby
 RUN cd /opt/yousebots-guide && bundle update
 RUN cd /opt/yousebots-guide && bundle install
+
+RUN wget -qO- https://deb.nodesource.com/setup_4.x | bash -
+RUN apt-get install -yy nodejs --fix-missing
+RUN npm install -g phantomjs
+
 VOLUME ["/automated"]
 WORKDIR /automated
 ENTRYPOINT ["cucumber"]
