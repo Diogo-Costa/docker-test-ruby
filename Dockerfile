@@ -22,5 +22,6 @@ USER ruby
 RUN cd /opt/yousebots-guide && bundle update
 RUN cd /opt/yousebots-guide && bundle install
 
-ENTRYPOINT ["cucumber","/opt/yousebots-guide/features/"]
-CMD [""]
+WORKDIR /automated
+ENTRYPOINT ["cucumber"]
+CMD ["features/"]
