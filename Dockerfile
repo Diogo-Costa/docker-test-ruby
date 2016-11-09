@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER diogo.fe.costa@gmail.com
 
-RUN apt-get update && apt-get install -y sudo build-essential libssl-dev libreadline6-dev curl git libffi-dev git-core libpq-dev redis-server --fix-missing
+RUN apt-get update && apt-get install -y sudo build-essential libssl-dev libfontconfig libreadline6-dev curl git libffi-dev git-core libpq-dev redis-server --fix-missing
 
 COPY install-rbenv.sh /usr/sbin/
 
