@@ -15,7 +15,7 @@ ENV HOME /home/ruby
 ENV PATH /home/ruby/.rbenv/shims:/home/ruby/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 #RUN cd /home/ruby && git clone https://github.com/muratso/uptime_checker.git uptime_checker
-COPY /var/www/yousebots-guide /opt/yousebots-guide
+COPY yousebots-guide /opt/yousebots-guide
 RUN chown ruby:ruby /opt/yousebots-guide/*
 RUN chmod 755 /opt/yousebots-guide/*
 USER ruby
