@@ -15,7 +15,7 @@ ENV HOME /home/ruby
 ENV PATH /home/ruby/.rbenv/shims:/home/ruby/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 #RUN cd /home/ruby && git clone https://github.com/muratso/uptime_checker.git uptime_checker
-COPY yousebots-guide /opt/yousebots-guide
+COPY /var/www/yousebots-guide /opt/yousebots-guide
 RUN chown ruby:ruby /opt/yousebots-guide/*
 RUN chmod 755 /opt/yousebots-guide/*
 USER ruby
@@ -23,6 +23,4 @@ RUN cd /opt/yousebots-guide && bundle update
 RUN cd /opt/yousebots-guide && bundle install
 
 ENTRYPOINT ["cucumber","/opt/yousebots-guide/features/"]
-
-# Creating variables to be received "Ex: --center"
-CMD ["$1"]
+CMD [""]
