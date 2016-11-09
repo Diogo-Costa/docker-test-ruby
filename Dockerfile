@@ -23,6 +23,4 @@ RUN cd /opt/yousebots-guide && bundle update
 RUN cd /opt/yousebots-guide && bundle install
 
 ENTRYPOINT ["cucumber","/opt/yousebots-guide/features/"]
-
-# Creating variables to be received "Ex: --center"
 CMD [""]
