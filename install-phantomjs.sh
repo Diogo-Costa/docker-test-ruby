@@ -19,7 +19,7 @@ fi
 
 PHANTOM_JS="$PHANTOM_VERSION-linux-$ARCH"
 
-sudo apt-get update
+#sudo apt-get update
 sudo apt-get install build-essential chrpath libssl-dev libxft-dev -y
 sudo apt-get install libfreetype6 libfreetype6-dev -y
 sudo apt-get install libfontconfig1 libfontconfig1-dev -y
