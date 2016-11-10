@@ -13,8 +13,7 @@ ENV HOME /home/ruby
 ENV PATH /home/ruby/.rbenv/shims:/home/ruby/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 ## Instalando o PhantomJS
-RUN apt-get install wget
-RUN sudo apt-get install build-essential chrpath libssl-dev libxft-dev -y
+RUN sudo apt-get install  wget build-essential chrpath libssl-dev libxft-dev -y
 RUN sudo apt-get install libfreetype6 libfreetype6-dev -y
 RUN sudo apt-get install libfontconfig1 libfontconfig1-dev -y
 RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
