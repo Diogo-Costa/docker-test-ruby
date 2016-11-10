@@ -12,6 +12,11 @@ RUN /usr/sbin/install-rbenv.sh
 ENV HOME /home/ruby
 ENV PATH /home/ruby/.rbenv/shims:/home/ruby/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
+## Instalando o PhantomJS
+COPY install-phantomjs.sh /usr/sbin/
+RUN chmod 755 /usr/sbin/install-phantomjs.sh
+RUN /usr/sbin/install-phantomjs.sh
+
 #RUN cd /home/ruby && git clone https://github.com/muratso/uptime_checker.git uptime_checker
 COPY yousebots-guide /opt/yousebots-guide
 RUN chown ruby:ruby /opt/yousebots-guide/*
@@ -22,4 +27,4 @@ RUN cd /opt/yousebots-guide && bundle
 VOLUME ["/automated"]
 WORKDIR /automated
 ENTRYPOINT ["cucumber"]
-CMD ["features/contact_features"]
+#CMD ["features/contact_features"]
