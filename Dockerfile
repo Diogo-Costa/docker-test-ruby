@@ -18,9 +18,8 @@ RUN chown ruby:ruby /opt/yousebots-guide/*
 RUN chmod 755 /opt/yousebots-guide/*
 USER ruby
 RUN cd /opt/yousebots-guide && bundle
-#RUN cd /opt/yousebots-guide && bundle install
 
 VOLUME ["/automated"]
 WORKDIR /automated
-#ENTRYPOINT ["cucumber"]
-#CMD ["features/"]
+ENTRYPOINT ["cucumber"]
+CMD ["features/contact_features"]
