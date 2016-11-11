@@ -13,20 +13,21 @@ ENV HOME /home/ruby
 ENV PATH /home/ruby/.rbenv/shims:/home/ruby/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 ## Instalando o PhantomJS
-RUN sudo apt-get install  wget build-essential chrpath libssl-dev libxft-dev -y
-RUN sudo apt-get install libfreetype6 libfreetype6-dev -y
+RUN sudo apt-get install wget libfreetype6 libfreetype6-dev -y
 RUN sudo apt-get install libfontconfig1 libfontconfig1-dev -y
 RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
 RUN sudo tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
 RUN sudo mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
 RUN sudo ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
 
-VOLUME ["/automated"]
-WORKDIR /automated
+ARG LOCAL_REPO
+
+COPY $LOCAL_REPO /automated
 RUN chown ruby:ruby /automated/*
 RUN chmod 755 /automated/*
 USER ruby
 RUN cd /automated && bundle
 
-##
+VOLUME ["/automated"]
+WORKDIR /automated
 ENTRYPOINT ["cucumber"]
