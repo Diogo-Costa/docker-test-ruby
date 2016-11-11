@@ -21,12 +21,12 @@ RUN sudo tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
 RUN sudo mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
 RUN sudo ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
 
-COPY yousebots-guide /opt/yousebots-guide
-RUN chown ruby:ruby /opt/yousebots-guide/*
-RUN chmod 755 /opt/yousebots-guide/*
-USER ruby
-RUN cd /opt/yousebots-guide && bundle
-
 VOLUME ["/automated"]
 WORKDIR /automated
+RUN chown ruby:ruby /automated/*
+RUN chmod 755 /automated/*
+USER ruby
+RUN cd /automated && bundle
+
+##
 ENTRYPOINT ["cucumber"]
