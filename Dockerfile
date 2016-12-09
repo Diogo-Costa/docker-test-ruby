@@ -25,9 +25,10 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #ARG ELEANOR
 #RUN apt-get install -y unzip
-ADD yousebot /tmp
+ADD yousebot /automated
 #RUN sudo unzip /tmp/yousebot.zip
-RUN sudo mv /tmp/yousebot /automated
+RUN sudo ls /
+RUN sudo ls /automated
 RUN chown ruby:ruby /automated/*
 RUN chmod 755 /automated/*
 USER ruby
