@@ -23,9 +23,9 @@ RUN sudo ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr
 # Clean Install
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ARG LOCAL_REPO
+ARG ELEANOR
 
-COPY $LOCAL_REPO /automated
+COPY $ELEANOR /automated
 RUN chown ruby:ruby /automated/*
 RUN chmod 755 /automated/*
 USER ruby
