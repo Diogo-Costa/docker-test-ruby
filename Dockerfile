@@ -25,7 +25,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #ARG ELEANOR
 
-COPY ../yousebot.tar.gz /tmp
+COPY yousebot.tar.gz /tmp
 RUN sudo tar xvjf /tmp/yousebot.tar.gz
 RUN sudo mv yousebot /automated
 RUN chown ruby:ruby /automated/*
