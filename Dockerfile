@@ -26,7 +26,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ARG ELEANOR
 
 COPY $ELEANOR /tmp
-RUN sudo unzip /tmp/$ELEANOR -d /automated
+RUN sudo tar xvjf /tmp/$ELEANOR
+RUN sudo mv $ELEANOR /automated
 RUN chown ruby:ruby /automated/*
 RUN chmod 755 /automated/*
 USER ruby
