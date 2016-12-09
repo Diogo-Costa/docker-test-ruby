@@ -15,9 +15,9 @@ ENV PATH /home/ruby/.rbenv/shims:/home/ruby/.rbenv/bin:/usr/local/sbin:/usr/loca
 ## Instalando o PhantomJS
 RUN sudo apt-get install wget libfreetype6 libfreetype6-dev -y
 RUN sudo apt-get install libfontconfig1 libfontconfig1-dev -y
-COPY phantomjs-2.1.1-linux-x86_64.tar.bz2
-RUN sudo tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-RUN sudo mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
+COPY phantomjs-2.1.1-linux-x86_64.tar.bz2 /tmp
+RUN sudo tar xvjf /tmp/phantomjs-2.1.1-linux-x86_64.tar.bz2
+RUN sudo mv /tmp/phantomjs-2.1.1-linux-x86_64 /usr/local/share
 RUN sudo ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
 
 # Clean Install
