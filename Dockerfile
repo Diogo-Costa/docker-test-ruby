@@ -24,9 +24,9 @@ RUN sudo ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #ARG ELEANOR
-
-COPY yousebot.tar.bz2 /tmp
-RUN sudo tar xvjf /tmp/yousebot.tar.bz2
+RUN apt-get install -y unzip
+COPY yousebot.zip /tmp
+RUN sudo unzip /tmp/yousebot.zip
 RUN sudo mv yousebot /automated
 RUN chown ruby:ruby /automated/*
 RUN chmod 755 /automated/*
