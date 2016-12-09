@@ -23,11 +23,11 @@ RUN sudo ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr
 # Clean Install
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ARG ELEANOR
+#ARG ELEANOR
 
-COPY $ELEANOR /tmp
-RUN sudo tar xvjf /tmp/$ELEANOR
-RUN sudo mv $ELEANOR /automated
+COPY ../yousebot.tar.gz /tmp
+RUN sudo tar xvjf /tmp/yousebot.tar.gz
+RUN sudo mv yousebot /automated
 RUN chown ruby:ruby /automated/*
 RUN chmod 755 /automated/*
 USER ruby
